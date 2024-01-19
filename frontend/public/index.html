@@ -14,9 +14,60 @@
     <title>React App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <style>
+      #root{
+        position: relative;
+        top: 100px;
+        height: 100%;
+        width: 100%;
+      }
+      .nav{
+        position: fixed;
+        top: 0px;
+        height: fit-content;
+        width: 100%;
+        background-color: black;
+        color: #FFFFF9;
+        font-size: 40px;
+        font-weight: bold;
+        padding: 7px 10px;
+      }
+      .form-signup{
+        /* position: absolute;
+        top: 50%;
+        left: 50%; */
+        top: 50%;
+        margin: 0 auto;
+        padding: 10px;
+        border: 1px solid black;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 100, 255, 0.5);
+        border-radius: 10px;
+        max-width: 500px;
+        background-color: #FFFFF9;
+        box-shadow: -10px -10px 10px rgba(239, 239, 239, 0.2),
+                        15px 15px 15px rgba(0, 0, 0, 0.1);
+    }
+    .form-signup .form-group{
+        padding: 10px;
+    }
+    .form-signup .form-group label{
+        color: black;
+        padding: 3px;
+    }
+    .text-center{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="nav">
+      GoRegal
+    </div>
+    <div id="root">
+    </div>
   </body>
 </html>

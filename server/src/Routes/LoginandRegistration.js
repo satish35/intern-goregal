@@ -45,6 +45,7 @@ router.post('/log-in', async(req, res) =>{
             }
             else if(result.rowCount == 0){// this is the case when no user is found for given username
                 res.json({'status': 'error', 'message': 'user doesnt exist'}).status(401);
+                res.end();
             }
             else
             {
@@ -66,9 +67,11 @@ router.post('/log-in', async(req, res) =>{
                                 'httpOnly': true,
                                 'expires': dayjs().add(120, 'second').toDate()
                             }).json({'status': 'success', 'message': 'successfully logged-in'}).status(200);
+                            res.end();
                         }
                         else{
                             res.json({'status': 'error', 'message': 'wrong crediantials'}).status(403);
+                            res.end();
                         }
                     }
                 });
@@ -76,14 +79,17 @@ router.post('/log-in', async(req, res) =>{
         });
     }catch(err){
         res.json({'status': 'error', 'message': 'something went wrong in server side'}).status(500);
+        res.end();
     }
 });
 
 router.get('/log-out', validateToken, async(req, res) =>{
     try {
-        return res.json({'status': 'success', 'message': `User ${req.username} logged-out succesfully`}).status(200);
+        res.clearCookie('token').json({'status': 'success', 'message': `User ${req.username} logged-out succesfully`}).status(200);
+        res.end();
     } catch (error) {
         res.json({'status': 'error', 'message': 'something went wrong in server side'}).status(500);
+        res.end();
     }
 })
 

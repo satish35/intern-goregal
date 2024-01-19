@@ -26,15 +26,16 @@ const Login = () => {
                 navigate('/home');
             }
             else{
-                alert(data.message);
+                throw data
             }
         }).catch((err) =>{
             console.log(err);
+            alert(err.message);
         })
     }
   return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} class="form-signup">
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
                 <input type={Text} value={username} onChange={(e) =>{setUsername(e.target.value)}} id="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter username"></input>
@@ -43,8 +44,10 @@ const Login = () => {
                 <label for="password">Password</label>
                 <input type={"password"} value={password} onChange={(e) =>{setPassword(e.target.value)}} class="form-control" id="password" placeholder="Password" required></input>
             </div>
-            <button type="submit" class="btn btn-primary" onClick={() =>{navigate('/register')}}>create new</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" onClick={() =>{navigate('/register')}}>create new</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </>
   )

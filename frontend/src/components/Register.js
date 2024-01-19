@@ -31,17 +31,18 @@ const Register = () => {
                 navigate('/log-in');
             }
             else{
-                alert(data.message);
+                throw data;
             }
             console.log(data);
         }).catch((err) =>{
             console.log(err);
+            alert(err.message);
         })
     }
 
   return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} class="form-signup">
             <div class="form-group">
                 <label for="first_name">First Name</label>
                 <input type={Text} id="first_name" class="form-control" value={first_name} onChange={(e) =>{setFirst_name(e.target.value)}} placeholder="Enter first name" required></input>
@@ -62,7 +63,9 @@ const Register = () => {
                 <label for="password">password</label>
                 <input type={password} id="password" class="form-control" value={password} onChange={(e) =>{setPassword(e.target.value)}} placeholder="Password" required></input>
             </div>
-            <button type="submit" class="btn btn-primary">submit</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">submit</button>
+            </div>
         </form>
     </>
   )
