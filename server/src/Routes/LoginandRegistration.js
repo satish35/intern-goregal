@@ -16,17 +16,21 @@ router.post('/register', async(req,res) => {
             }
             else{
                 res.json({'status': 'success', 'message': 'registred successfully'}).status(200);
+                res.end();
             }
         });
     } catch (err) {
         if(err.code == '23505'){
             res.json({'status':'error', 'message':'email already exist try different email'});
+            res.end();
         }
         else if(err.code == '23502'){
             res.json({'status': 'error', 'message':`${err.column} is required`});// error for any empty field because of NOT NULL constraint in psql
+            res.end();
         }
         else{
             res.json({'status': 'error', 'message': 'something went wrong in server side'}).status(500);
+            res.end();
         }
     }
 });
